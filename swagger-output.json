@@ -1,0 +1,327 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Meta API",
+    "descrption": "API 文檔"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiAuth": {
+      "type": "apiKey",
+      "in": "headers",
+      "name": "authorization",
+      "description": "auth for api"
+    }
+  },
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/posts/": {
+      "get": {
+        "tags": [
+          "Post"
+        ],
+        "description": "取得貼文",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "some api info",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "example": "628dbcf49adbd24a2c962de1"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "大帥哥中的大帥哥"
+                      },
+                      "user": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "6283a064261ad96649ea9d05"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "大帥哥中的大帥哥"
+                          },
+                          "photo": {
+                            "type": "string",
+                            "example": "https://i.imgur.com/JhstGJB.png"
+                          }
+                        }
+                      },
+                      "tags": {
+                        "type": "string",
+                        "example": "[\"心情\"]"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "group"
+                      },
+                      "image": {
+                        "type": "string",
+                        "example": "https://i.imgur.com/q3NHdNn.jpg"
+                      },
+                      "content": {
+                        "type": "string",
+                        "example": "test"
+                      },
+                      "likes": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "comments": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "createAt": {
+                        "type": "string",
+                        "example": "2022-05-25T05:21:56.851Z"
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Post"
+        ],
+        "description": "新增貼文",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "type": "object",
+            "required": true,
+            "description": "格式",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string",
+                  "example": "你的小老虎上限拉"
+                },
+                "tags": {
+                  "type": "string",
+                  "example": "心情"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "group"
+                }
+              },
+              "required": [
+                "content",
+                "tags",
+                "type"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "add",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "example": "628dbcf49adbd24a2c962de1"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "大帥哥中的大帥哥"
+                      },
+                      "user": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "6283a064261ad96649ea9d05"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "大帥哥中的大帥哥"
+                          },
+                          "photo": {
+                            "type": "string",
+                            "example": "https://i.imgur.com/JhstGJB.png"
+                          }
+                        }
+                      },
+                      "tags": {
+                        "type": "string",
+                        "example": "[\"心情\"]"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "group"
+                      },
+                      "image": {
+                        "type": "string",
+                        "example": "https://i.imgur.com/q3NHdNn.jpg"
+                      },
+                      "content": {
+                        "type": "string",
+                        "example": "test"
+                      },
+                      "likes": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "comments": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "createAt": {
+                        "type": "string",
+                        "example": "2022-05-25T05:21:56.851Z"
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/posts/{id}": {
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "patch": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/user/register": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/user/reset": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/user/profile": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/user/updateUser": {
+      "patch": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/user/uploadImg": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {}
+}
